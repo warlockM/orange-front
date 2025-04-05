@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 w-full bg-gray-900 bg-opacity-90 backdrop-blur-md py-4 px-8 flex justify-between items-center z-10">
+      <nav className="fixed top-0 left-0 w-full bg-gray-900 bg-opacity-90 backdrop-blur-md border-b-4 border-orange-500 py-4 px-8 flex justify-between items-center z-50">
         <div className="text-xl font-bold text-orange-500">Orange Intelligence</div>
         <div className="space-x-6">
           <Link href="/" className="text-orange-400 hover:text-orange-300 transition">Home</Link>
@@ -38,8 +38,8 @@ export default function Home() {
           <Image 
             src="/OrangeLogo.png" 
             alt="Competitor Intelligence"
-            width={300}
-            height={300}
+            width={500}
+            height={500}
             className={`${spin ? 'animate-spin-once' : ''}`}
           />
         </div>
@@ -49,19 +49,19 @@ export default function Home() {
             Orange Intelligence
           </h1>
           <ul>
-          <li className="text-xl sm:text-2xl text-gray-300 mb-6">
+          <li className="text-lg sm:text-2xl text-gray-300 mb-6">
           💵 Pricing strategy monitoring
           </li>
-          <li className="text-xl sm:text-2xl text-gray-300 mb-6">
+          <li className="text-lg sm:text-2xl text-gray-300 mb-6">
           🔍 SEO strategy monitoring
           </li>
-          <li className="text-xl sm:text-2xl text-gray-300 mb-6">
+          <li className="text-lg sm:text-2xl text-gray-300 mb-6">
           🧑 Customer Sentiment insights
           </li>
-          <li className="text-xl sm:text-2xl text-gray-300 mb-6">
+          <li className="text-lg sm:text-2xl text-gray-300 mb-6">
           🤖 AI Agent to help you run experiments with your store
           </li>
-          <li className="text-xl sm:text-2xl text-gray-300 mb-6">
+          <li className="text-lg sm:text-2xl text-gray-300 mb-6">
           ❤️ Open Source and Free
           </li>
           </ul>

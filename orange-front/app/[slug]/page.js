@@ -43,11 +43,16 @@ export default function DynamicPage() {
         </div>
       )}
 
-      {slug === "pricing" && (
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-6">
-          <h1>Pricing</h1>
-        </div>
-      )}
+{slug === "pricing" && (
+  <div className="mt-6 flex justify-center w-full">
+    <div className="max-w-2xl text-center">
+      <h1 className="text-lg text-gray-300">
+        The tool is open source and free to use. Since this is self hosted, we will be supporting our early adopters with setup.
+        A hosted version will be paid with agentic AI. You can connect with us by filling out registration form on home page under the supported brands section. Cheer ya.
+      </h1>
+    </div>
+  </div>
+)}
 
       {slug === "about" && (
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-6">
