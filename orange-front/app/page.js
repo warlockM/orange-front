@@ -46,7 +46,7 @@ export default function Home() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-gray-900 px-6 pt-4 pb-6 space-y-3">
+        <div className="md:hidden bg-gray-900 px-6 pt-8 pb-6 space-y-4">
           <Link href="/" className="block text-orange-400">Home</Link>
           <Link href="/pricing" className="block text-orange-400">Pricing</Link>
           <Link href="/about" className="block text-orange-400">About</Link>
