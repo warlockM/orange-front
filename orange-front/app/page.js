@@ -73,22 +73,29 @@ export default function Home() {
         </div>
       </div>
 {/* Brand Grid Section */}
-<h1 className="text-xl sm:text-3xl font-bold text-orange-500 mb-4 gap-10 p-10 ">
+<h1 className="text-xl sm:text-3xl font-bold text-orange-500 mb-4 gap-10 p-5">
             Supported brand to be launched with v1
           </h1>
-<div className="grid grid-cols-6 gap-6 mb-6 px-4">
-  {["amazon", "flipkart", "myntra", "ajio", "nykaa", "firstcry"].map((brand, idx) => (
-    <div key={idx} className="flex justify-center items-center">
-      <Image
-        src={`/logos/${brand}.png`}
-        alt={brand}
-        width={300}
-        height={300}
-        className="object-contain"
-      />
-    </div>
-  ))}
+<div className="flex justify-center items-center w-full">
+  {/* Brand Grid Section */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-6 px-4">
+    {["amazon", "flipkart", "myntra", "ajio", "nykaa", "firstcry"].map((brand, idx) => (
+      <div
+        key={idx}
+        className="w-[300px] h-[300px] flex items-center justify-center bg-white border-4 border-orange-500 rounded-none"
+      >
+        <Image
+          src={`/logos/${brand}.png`}
+          alt={brand}
+          width={200}
+          height={200}
+          className="object-contain"
+        />
+      </div>
+    ))}
+  </div>
 </div>
+
 
       {/* Tally Form Embed */}
       <div className="w-full flex justify-center px-4 py-10">
