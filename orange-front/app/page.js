@@ -54,7 +54,7 @@ export default function Home() {
   ))}
 </ul>
           <a href="#form">
-            <button className="mt-4 px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition">
+            <button className="mt-4 px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition" id="register-homepage">
               Get free access
             </button>
           </a>
