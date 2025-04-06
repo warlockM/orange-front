@@ -55,7 +55,7 @@ export default function Home() {
       )}
 
       {/* Hero Section */}
-      <div className="flex flex-col md:flex-row items-center justify-center min-h-screen mt-20 px-4">
+      <div className="flex flex-col md:flex-row items-center justify-center min-h-screen px-4">
         <div className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0">
           <Image
             src="/OrangeLogo.png"
@@ -68,18 +68,23 @@ export default function Home() {
 
         <div className="w-full md:w-1/2 text-center md:text-left">
           <h1 className="text-4xl sm:text-5xl font-bold text-orange-500 mb-4">Orange Intelligence</h1>
-          <ul>
-            {[
-              "💵 Pricing strategy monitoring",
-              "🔍 SEO strategy monitoring",
-              "🧑 Customer Sentiment insights",
-              "🤖 AI Agent to help you run experiments with your store",
-              "❤️ Open Source and Free",
-            ].map((item, i) => (
-              <li key={i} className="text-lg sm:text-xl text-gray-300 mb-4">{item}</li>
-            ))}
-          </ul>
-          <a href="/case-studies">
+          <ul className="space-y-3 mt-4">
+  {[
+    "💵 Pricing strategy monitoring",
+    "🔍 SEO strategy monitoring",
+    "🧑 Customer Sentiment insights",
+    "🤖 AI Agent to help you run experiments with your store",
+    "❤️ Open Source and Free"
+  ].map((text, index) => (
+    <li
+      key={index}
+      className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed"
+    >
+      {text}
+    </li>
+  ))}
+</ul>
+          <a href="#form">
             <button className="mt-4 px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition">
               Get free access
             </button>
@@ -111,7 +116,7 @@ export default function Home() {
       </div>
 
       {/* Tally Form */}
-      <div className="w-full flex justify-center px-4 py-10">
+      <div id="form" className="w-full flex justify-center px-4 py-10">
         <iframe
           data-tally-src="https://tally.so/embed/3lz9QX?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&source=website_embeded_form"
           loading="lazy"

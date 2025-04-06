@@ -11,9 +11,9 @@ export default function DynamicPage() {
       title: "Case Studies",
       content: "Explore how businesses are leveraging our insights to stay ahead.",
       caseStudies: [
-        { name: "E-Commerce Growth", link: "/case-studies/ecommerce" },
-        { name: "Price Tracking Success", link: "/case-studies/pricing" },
-        { name: "Competitor Monitoring", link: "/case-studies/monitoring" }
+        { name: "Toys R Us: Billion Dollar Fall", link: "/case-studies/toysrus" },
+        { name: "Fab.com: Ignoring Competition Saga", link: "/case-studies/fabcom" },
+        { name: "Payless ShoeSource: Ignored D2C Trends", link: "/case-studies/payless" }
       ]
     },
     "pricing": { title: "Pricing", content: "Check our pricing plans." },
