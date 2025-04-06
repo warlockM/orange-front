@@ -8,18 +8,20 @@ export default function ToysRUs() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col md:flex-row">
-      {/* Mobile Hamburger */}
-      <div className="md:hidden p-4 bg-gray-800 border-b-2 border-orange-500 flex justify-between items-center">
-        <h1 className="text-lg font-bold text-orange-500">Toys "R" Us</h1>
-        <button onClick={() => setMenuOpen(!menuOpen)} className="text-orange-400">
+    <div className="min-h-screen bg-gray-900 text-white flex flex-col md:flex-row pt-20">
+      {/* Mobile Header */}
+      <div className="md:hidden px-4 py-3 bg-gray-800 border-b-2 border-orange-500 flex justify-between items-center fixed top-0 left-0 right-0 z-40">
+        <h1 className="text-lg font-bold text-orange-500 truncate pr-2">Toys "R" Us</h1>
+        <button onClick={() => setMenuOpen(!menuOpen)} className="text-orange-400 text-2xl leading-none">
           {menuOpen ? "✖" : "☰"}
         </button>
       </div>
 
       {/* Sidebar */}
       <aside
-        className={`bg-gray-800 text-orange-400 w-full md:w-1/4 p-4 border-r-2 border-orange-500 ${menuOpen ? "block" : "hidden"} md:block`}
+        className={`bg-gray-800 text-orange-400 w-full md:w-1/4 p-4 border-r-2 border-orange-500 mt-16 md:mt-0 ${
+          menuOpen ? "block" : "hidden"
+        } md:block`}
       >
         <h2 className="text-xl font-bold mb-4">Contents</h2>
         <ul className="space-y-2 text-sm">
@@ -34,7 +36,7 @@ export default function ToysRUs() {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 p-6">
+      <main className="flex-1 px-6 py-4">
         <section id="intro" className="mb-6">
           <h1 className="text-3xl font-bold text-orange-500 mb-4">
             🧸 The Fall of Toys "R" Us: How Ignoring Competitor Signals Led to a Billion-Dollar Collapse

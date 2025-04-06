@@ -22,38 +22,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 w-full bg-gray-900 bg-opacity-90 backdrop-blur-md border-b-4 border-orange-500 py-4 px-6 flex justify-between items-center z-50">
-        <div className="text-xl font-bold text-orange-500">Orange Intelligence</div>
-
-        {/* Desktop Links */}
-        <div className="hidden md:flex space-x-6">
-          <Link href="/" className="text-orange-400 hover:text-orange-300 transition">Home</Link>
-          <Link href="/pricing" className="text-orange-400 hover:text-orange-300 transition">Pricing</Link>
-          <Link href="/about" className="text-orange-400 hover:text-orange-300 transition">About</Link>
-          <Link href="/case-studies" className="text-orange-400 hover:text-orange-300 transition">Case Studies</Link>
-        </div>
-
-        {/* Mobile Hamburger */}
-        <div className="md:hidden">
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-orange-400 focus:outline-none"
-          >
-            ☰
-          </button>
-        </div>
-      </nav>
-
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-gray-900 px-6 pt-8 pb-6 space-y-4">
-          <Link href="/" className="block text-orange-400">Home</Link>
-          <Link href="/pricing" className="block text-orange-400">Pricing</Link>
-          <Link href="/about" className="block text-orange-400">About</Link>
-          <Link href="/case-studies" className="block text-orange-400">Case Studies</Link>
-        </div>
-      )}
-
+ 
       {/* Hero Section */}
       <div className="flex flex-col md:flex-row items-center justify-center min-h-screen px-4">
         <div className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0">
