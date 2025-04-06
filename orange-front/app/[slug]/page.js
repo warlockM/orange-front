@@ -23,7 +23,7 @@ export default function DynamicPage() {
   const page = pages[slug] || { title: "Not Found", content: "Page does not exist." };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center text-center text-white p-6">
+    <div className="min-h-screen flex flex-col items-center justify-center text-center text-white p-6 mt-6">
       <h1 className="text-4xl font-bold text-orange-500">{page.title}</h1>
       <p className="text-lg text-gray-300 mt-4">{page.content}</p>
 
