@@ -42,7 +42,7 @@ export default function Home() {
     "💵 Pricing strategy monitoring",
     "🔍 SEO strategy monitoring",
     "🧑 Customer Sentiment insights",
-    "🤖 AI Agent to help you run experiments with your store",
+    "🤖 AI Agent to run your store",
     "❤️ Open Source and Free"
   ].map((text, index) => (
     <li
