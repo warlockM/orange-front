@@ -56,7 +56,23 @@ export default function DynamicPage() {
 
       {slug === "about" && (
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-6">
-          <h1>about</h1>
+          <div className="max-w-sm mx-auto bg-white rounded-2xl shadow-lg p-6 border border-gray-200 mt-10">
+  <div className="text-center">
+    <h2 className="text-2xl font-bold text-gray-800">👨‍💻 Mayank Raj</h2>
+    <p className="text-gray-500 mt-1">4 Years of Experience</p>
+  </div>
+
+  <div className="mt-4">
+    <h3 className="text-lg font-semibold text-gray-700 mb-2">🧳 Companies Worked With:</h3>
+    <ul className="list-disc list-inside text-gray-600 space-y-1">
+      <li>NTT Data (formerly Apisero)</li>
+      <li>GeeksForGeeks</li>
+      <li>ParityCube</li>
+      <li>Pepper.ru</li>
+    </ul>
+  </div>
+</div>
+
         </div>
       )}
 
