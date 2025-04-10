@@ -17,6 +17,7 @@ export default function Navbar() {
           <Link href="/pricing" className="text-orange-400 hover:text-orange-300 transition">Pricing</Link>
           <Link href="/about" className="text-orange-400 hover:text-orange-300 transition">About</Link>
           <Link href="/case-studies" className="text-orange-400 hover:text-orange-300 transition">Case Studies</Link>
+          <Link href="/api-docs" className="text-orange-400 hover:text-orange-300">API Docs</Link>
         </div>
 
         {/* Mobile Hamburger */}
@@ -37,6 +38,7 @@ export default function Navbar() {
           <Link href="/pricing" className="block py-2 text-orange-400 hover:text-orange-300">Pricing</Link>
           <Link href="/about" className="block py-2 text-orange-400 hover:text-orange-300">About</Link>
           <Link href="/case-studies" className="block py-2 text-orange-400 hover:text-orange-300">Case Studies</Link>
+          <Link href="/api-docs" className="block py-2 text-orange-400 hover:text-orange-300">API Docs</Link>
         </div>
       )}
     </nav>
