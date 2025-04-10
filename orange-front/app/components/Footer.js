@@ -36,7 +36,7 @@ export default function Footer() {
           <ul className="space-y-2">
             <li>
               <a
-                href="/orange-intelligence-whitepaper.pdf"
+                href="https://docs.google.com/document/d/1rcuUBJvDBU9wKdhCwsVMctbtlJUr2gNXB9mVJqS3jDQ/edit?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-orange-300 transition"
