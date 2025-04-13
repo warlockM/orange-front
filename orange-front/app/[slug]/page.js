@@ -2,7 +2,7 @@
 
 import { useParams } from "next/navigation";
 import Link from "next/link";
-
+import { motion } from "framer-motion";
 export default function DynamicPage() {
   const { slug } = useParams();
 
@@ -55,40 +55,49 @@ export default function DynamicPage() {
       )}
 
 {slug === "about" && (
-  <div className="w-full flex justify-center mt-10">
-    <div className="max-w-sm w-full bg-white rounded-2xl shadow-lg p-6 border border-orange-200 text-center">
+  <div className="w-full flex justify-center mt-10 px-4">
+    <div className="max-w-xl w-full bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl shadow-xl p-8 border border-orange-300 text-center transition-all duration-300 hover:shadow-orange-500/30">
       <img
         src="https://avatars.githubusercontent.com/u/61996430?v=4"
         alt="Mayank Raj Avatar"
-        className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-orange-200"
+        className="w-28 h-28 rounded-full mx-auto mb-5 border-4 border-orange-400 shadow-md"
       />
-      <h2 className="text-2xl font-bold text-orange-600">👨‍💻 Mayank Raj</h2>
-      <p className="text-orange-400 mt-3">With 4 years of experiences of hands-on experience building products for the world, Mayank has shown excellence in Software Engineering and Product Management. His most recent product was Pepper.ru an affiliate makrekting platform for Russia launched in November 2024, boasting over a million active users. Now he is into orange.</p>
+      <h2 className="text-3xl font-extrabold text-orange-500">👨‍💻 Mayank Raj</h2>
+      <p className="text-gray-300 mt-4 leading-relaxed text-center">
+        With over 4 years of experience building digital products, Mayank blends deep software engineering skills with sharp product instincts.
+        He recently launched <strong>Pepper.ru</strong>, an affiliate platform in Russia that hit 1M+ users. Now, he’s building the future with <strong>Orange Intelligence</strong>.
+      </p>
 
-      <div className="mt-4 text-left">
-        <h3 className="text-lg font-semibold text-orange-500 mb-2">🧳 Companies Worked With:</h3>
-        <ul className="list-disc list-inside text-gray-700 space-y-1">
-          <li>NTT Data (formerly Apisero)</li>
-          <li>GeeksForGeeks</li>
-          <li>ParityCube</li>
-          <li>Pepper.ru</li>
-        </ul>
+      <div className="mt-6">
+  <h3 className="text-xl font-semibold text-orange-400 mb-4">🧳 Companies Worked With:</h3>
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    {["NTT Data (formerly Apisero)", "GeeksForGeeks", "ParityCube", "Pepper.ru"].map((company, index) => (
+      <motion.div
+        key={company}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: index * 0.2, duration: 0.5, type: "spring" }}
+        className="bg-gray-700 text-white px-4 py-3 rounded-md shadow-md text-center"
+      >
+        {company}
+      </motion.div>
+    ))}
+  </div>
+</div>
 
-        <h3 className="text-lg font-semibold text-orange-500 mt-4 mb-1">📧 Contact:</h3>
-        <div className="flex items-center justify-between flex-wrap gap-2">
-          <p className="text-gray-700 break-all">emailmayank@protonmail.com</p>
-          <a
-            href="mailto:emailmayank@protonmail.com?subject=I am interested in Orange Intelligence"
-            className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded-md text-sm transition"
-          >
-            Send Email
-          </a>
-        </div>
+      <h3 className="text-xl font-semibold text-orange-400 mt-6 mb-2">📧 Contact:</h3>
+      <div className="flex flex-col sm:flex-row items-center justify-between bg-gray-700 p-3 rounded-md">
+        <p className="text-gray-200 break-all">emailmayank@protonmail.com</p>
+        <a
+          href="mailto:emailmayank@protonmail.com?subject=I am interested in Orange Intelligence"
+          className="mt-2 sm:mt-0 sm:ml-4 bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md text-sm transition"
+        >
+          Send Email
+        </a>
       </div>
     </div>
   </div>
 )}
-
 
       <Link href="/" className="mt-6 text-orange-400 hover:text-orange-300 transition">
         ← Back to Home
