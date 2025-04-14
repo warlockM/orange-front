@@ -45,7 +45,7 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <Link href="/signup" className="hover:text-orange-300 transition">
+              <Link href="/neuron-program" className="hover:text-orange-300 transition">
                 Become a Member
               </Link>
             </li>
