@@ -1,3 +1,5 @@
+// page.js
+
 "use client";
 
 import Link from "next/link";
@@ -26,6 +28,28 @@ const sentimentData = [
 ];
 
 const brandLogos = ["amazon", "flipkart", "myntra", "ajio", "nykaa", "firstcry"];
+const steps = [
+  {
+    title: "1. Add Competitor URLs",
+    description: "You enter competitor product URLs from marketplaces like Amazon or Shopify.",
+  },
+  {
+    title: "2. Daily Scanning Begins",
+    description: "We scan these URLs every day for price, title, description, SEO changes, ratings, reviews & more.",
+  },
+  {
+    title: "3. We Analyze the Delta",
+    description: "We detect what changed since yesterday, including customer sentiment trends.",
+  },
+  {
+    title: "4. Insights Are Delivered",
+    description: "We show you what your competitors are up to in real-time, like a competitive radar.",
+  },
+  {
+    title: "⚠️ Limitation",
+    description: "We can't track new product launches unless you manually add them. Yet.",
+  },
+];
 
 export default function Home() {
   const [spin, setSpin] = useState(false);
@@ -67,7 +91,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-gray-800 to-gray-900 text-white">
       {/* Hero Section */}
       <div className="flex flex-col md:flex-row items-center justify-center min-h-screen px-4">
         <motion.div
@@ -92,8 +116,14 @@ export default function Home() {
         >
           <h1 className="text-4xl sm:text-5xl font-bold text-orange-500 mb-4">Orange Intelligence</h1>
           <h1 className="text-2xl sm:text-3xl font-semibold text-white mb-4">Predict competitor moves before they happen.</h1>
+          <p className="text-gray-300 text-base sm:text-lg">
+          🟠 Mitigate 15-20% revenue losses on marketplaces.
+          </p>
+          <p className="text-gray-300 text-base sm:text-lg">
+          🟠 Make strategic pricing, SEO, and review decisions at 4X speed.
+          </p>
           <p className="text-gray-300 text-base sm:text-lg mb-4">
-            Make strategic pricing, SEO, and review decisions with confidence. Our AI agent monitors your competitors and auto-adapts your store's game plan.
+          🟠 Let AI researcher do the competitor research's heavy lifting.
           </p>
           <a href="#form">
             <button className="mt-4 px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition" id="register-homepage">
@@ -103,11 +133,87 @@ export default function Home() {
         </motion.div>
       </div>
 
-      {/* Brand Carousel */}
-      <h1 className="text-xl sm:text-3xl font-bold text-orange-500 mb-4 text-center p-4">
-        Supported brands launching in v1
-      </h1>
-      <div className="px-4 md:px-[15%]">
+      {/* How It Works */}
+      <section className="bg-white py-16 px-6 sm:px-10 flex justify-center">
+        <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Shopify Side */}
+          <div className="border-4 border-green-600 rounded-xl p-8 shadow-md bg-[#F6F9F6]">
+            <h2 className="text-2xl sm:text-3xl font-bold text-green-800 mb-4">
+              What Shopify has to say
+            </h2>
+            <p className="text-base sm:text-lg text-gray-700 mb-4">
+              If you’re starting an eCommerce business, conducting a competitor analysis will help you:
+            </p>
+            <ul className="text-base sm:text-lg text-gray-700 space-y-2 list-disc list-inside">
+              <li>Make informed marketing decisions</li>
+              <li>Identify industry trends</li>
+              <li>Benchmark against competitors</li>
+              <li>Find your unique value proposition</li>
+              <li>Determine pricing</li>
+              <li>Unearth new ways of speaking to customers</li>
+              <li>Find gaps in your marketing or product line</li>
+            </ul>
+            <p className="mt-6 text-sm text-gray-500">
+              Reference:{' '}
+              <a
+                href="https://www.shopify.com/in/blog/competitive-analysis"
+                className="text-green-600 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Shopify Blog
+              </a>
+            </p>
+          </div>
+
+          {/* Amazon Side */}
+          <div className="border-4 border-yellow-600 rounded-xl p-8 shadow-md bg-[#F3F3F3]">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#FF9900] mb-4">
+              What Amazon believes
+            </h2>
+            <p className="text-base sm:text-lg text-gray-800 mb-4">
+              Amazon doesn't just monitor competitors — they *obsess* over them. Here's what they prioritize:
+            </p>
+            <ul className="text-base sm:text-lg text-gray-800 space-y-2 list-disc list-inside">
+              <li>Conducting competitor research for your Amazon business is crucial for staying competitive and improving the performance and profitability of your business.</li> 
+              <li>Competitor research also helps you enhance your SEO, stay ahead of market changes to improve your market share, and make informed decisions, ultimately reducing risks and improving your performance on Amazon.</li>
+              <li>By understanding competitor's pricing strategies, marketing efforts, and customer feedback, you can refine your own approach to attract customers more effectively.</li>
+            </ul>
+            <p className="mt-6 text-sm text-gray-600">
+              Reference: <a href="https://www.junglescout.com/resources/articles/amazon-competitor-analysis/"
+                className="text-orange-600 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer">Jungle Scout</a>
+            </p>
+          </div>
+        </div>
+      </section>
+{/* How It Works */}
+<section className="bg-black text-white py-16 px-4 sm:px-10" id="how-it-works">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-4xl font-bold text-orange-500 mb-10">How It Works</h2>
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+            {steps.map((step, index) => (
+              <motion.div
+                key={index}
+                className="bg-gray-900 p-6 rounded-lg shadow-md border border-orange-500"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.2, duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-2xl font-semibold text-orange-400 mb-3">{step.title}</h3>
+                <p className="text-gray-300">{step.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* Brand Carousel + Centered Section */}
+      <div className="px-4 md:px-[15%] text-center">
+        <h1 className="text-xl sm:text-3xl font-bold text-orange-500 mb-4 p-4">
+          Supported brands launching in v1
+        </h1>
         <Slider {...settings}>
           {brandLogos.map((brand, idx) => (
             <div key={idx} className="flex items-center justify-center p-6">
@@ -169,6 +275,8 @@ export default function Home() {
           allowFullScreen
         ></iframe>
       </div>
+
+      <div className="linkedin-post"></div>
     </div>
   );
 }
