@@ -92,6 +92,15 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-800 to-gray-900 text-white">
+       {/* Repo Availability Bookmark */}
+       <motion.div
+        className="fixed top-10 right-0 bg-yellow-500 text-black p-4 rounded-l-xl shadow-lg z-50 mt-10"
+        initial={{ x: '100%' }}
+        animate={{ x: 0 }}
+        transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+      >
+        <p className="font-semibold text-sm">Repo will be available by Q1-2026</p>
+      </motion.div>
       {/* Hero Section */}
       <div className="flex flex-col md:flex-row items-center justify-center min-h-screen px-4">
         <motion.div
