@@ -1,119 +1,93 @@
 "use client";
-import { useState } from "react";
-import Link from "next/link";
 
-/* ───────── Platform Home ───────── */
+import { useState } from "react";
+import TotalProducts from "./home/TotalProducts";
+import ActiveCompetitors from "./home/ActiveCompetitors";
+import HistoryCount from "./home/HistoryCount";
+import StoreIntegrations from "./home/StoreIntegrations";
+import YourProducts from "./home/YourProducts";
+
 export default function Home() {
   const [url, setUrl] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState(null);       // holds success OR error object
+  const [result, setResult] = useState(null);
+  const [error, setError] = useState(null);
 
-  const handleAdd = async () => {
-    if (!url.trim()) return;
-    setLoading(true);
-    setResult(null);
-
+  const handleScrape = async () => {
     try {
-      const apiUrl = `http://127.0.0.1:8000/scrape?url=${encodeURIComponent(url.trim())}`;
-      const res = await fetch(apiUrl);
+      const res = await fetch(`http://127.0.0.1:8000/scrape?url=${encodeURIComponent(url)}`);
       const data = await res.json();
-
-      if (!res.ok || data.error) {
-        setResult({ error: data.error || "Unknown API error" });
+      if (res.ok) {
+        setResult(data);
+        setError(null);
       } else {
-        setResult({ product: data });
+        setResult(null);
+        setError(data.error);
       }
     } catch (err) {
-      setResult({ error: "Unable to reach scraping service" });
-    } finally {
-      setLoading(false);
-      setUrl("");
+      setResult(null);
+      setError("Something went wrong.");
     }
   };
 
   return (
-    <div className="min-h-screen flex bg-black text-white">
+    <div className="p-10 space-y-10">
+      {/* Scrape Section */}
+      <h1 className="text-3xl font-bold text-orange-500 mb-6">
+        Add a new competitor product
+      </h1>
 
-      {/* ───────── Main content ───────── */}
-      <main className="flex-1 p-10">
-        <h1 className="text-3xl font-bold text-orange-500 mb-8 mt-10">
-          Add a new competitor product
-        </h1>
-
-        {/* Input + Add button */}
-        <div className="flex flex-col sm:flex-row gap-4 max-w-2xl">
-          <input
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            placeholder="Paste competitor product URL…"
-            className="flex-1 px-4 py-3 rounded-md bg-zinc-800 border border-zinc-700 focus:outline-none focus:border-orange-500 text-sm"
-          />
-          <button
-            onClick={handleAdd}
-            disabled={loading}
-            className="bg-orange-600 hover:bg-orange-700 disabled:bg-zinc-700 transition px-6 py-3 rounded-md font-semibold text-sm"
-          >
-            {loading ? "Adding…" : "Add"}
-          </button>
-        </div>
-
-        {/* Result / Error display */}
-        <div className="mt-10">
-          {result?.product && <ProductCard data={result.product} />}
-          {result?.error && (
-            <p className="text-red-400 bg-red-900/40 p-4 rounded-md max-w-lg">
-              {result.error}
-            </p>
-          )}
-        </div>
-      </main>
-    </div>
-  );
-}
-
-/* ───────── Helper: sidebar link ───────── */
-function SidebarLink({ href, children }) {
-  return (
-    <Link
-      href={href}
-      className="block px-3 py-2 rounded-md hover:bg-orange-500/20 text-gray-300"
-    >
-      {children}
-    </Link>
-  );
-}
-
-/* ───────── Helper: product card ───────── */
-function ProductCard({ data }) {
-  return (
-    <div className="bg-zinc-900 border border-orange-500 rounded-lg p-6 max-w-xl">
-      <h2 className="text-xl font-bold text-orange-400 mb-2">{data.name}</h2>
-      <p className="text-gray-400 text-sm mb-4 break-all">{data.url}</p>
-
-      <div className="grid grid-cols-2 gap-4 text-sm">
-        <Stat label="Price" value={`₹${data.price}`} />
-        <Stat label="Rating" value={data.rating} />
-        <Stat label="Reviews" value={data.reviews_count} />
-        <Stat label="Seller" value={data.seller_name} />
+      <div className="flex flex-col sm:flex-row gap-4">
+        <input
+          type="text"
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+          placeholder="Enter product URL..."
+          className="flex-1 px-4 py-2 bg-zinc-800 text-white border border-gray-600 rounded"
+        />
+        <button
+          onClick={handleScrape}
+          className="px-6 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded transition"
+        >
+          Add
+        </button>
       </div>
 
-      <a
-        href={data.seller_page}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-block mt-4 text-orange-300 hover:text-orange-200 underline text-sm"
-      >
-        View Seller Page →
-      </a>
-    </div>
-  );
-}
+      {result && (
+        <div className="bg-zinc-900 border border-orange-500 rounded-lg p-6 mt-6 space-y-2">
+          <h2 className="text-xl font-bold text-orange-400">Scraped Product Info</h2>
+          <p><strong>Name:</strong> {result.name}</p>
+          <p><strong>Price:</strong> ₹{result.price}</p>
+          <p><strong>Rating:</strong> {result.rating}</p>
+          <p><strong>Reviews:</strong> {result.reviews_count}</p>
+          <p><strong>Seller:</strong> {result.seller_name}</p>
+          <a
+            href={result.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-orange-300 underline"
+          >
+            Open Product
+          </a>
+        </div>
+      )}
 
-function Stat({ label, value }) {
-  return (
-    <div>
-      <p className="text-gray-500">{label}</p>
-      <p className="text-orange-200 font-medium">{value}</p>
+      {error && (
+        <div className="bg-red-900 text-red-100 border border-red-500 p-4 rounded mt-6">
+          <p>⚠️ {error}</p>
+        </div>
+      )}
+
+      {/* Divider */}
+      <hr className="border-orange-800 my-10" />
+
+      {/* Dashboard Stat Sections - 2 Column Grid */}
+      <section className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <TotalProducts />
+        <ActiveCompetitors />
+        <HistoryCount />
+        <StoreIntegrations />
+        <YourProducts />
+      </section>
     </div>
   );
 }
