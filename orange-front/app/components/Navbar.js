@@ -18,6 +18,7 @@ export default function Navbar() {
           <Link href="/about" className="text-orange-400 hover:text-orange-300 transition">About</Link>
           <Link href="/case-studies" className="text-orange-400 hover:text-orange-300 transition">Case Studies</Link>
           <Link href="/api-docs" className="text-orange-400 hover:text-orange-300">API Docs</Link>
+          <Link href="/platform" className="text-orange-400 hover:text-orange-300">Platform</Link>
         </div>
 
         {/* Mobile Hamburger */}

@@ -1,7 +1,7 @@
 // page.js
 
 "use client";
-
+import AirtableSubmissionStats from './components/AirtableSubmissionStats';
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -101,6 +101,7 @@ export default function Home() {
       >
         <p className="font-semibold text-sm">Repo will be available by Q1-2026</p>
       </motion.div>
+      <AirtableSubmissionStats />
       {/* Hero Section */}
       <div className="flex flex-col md:flex-row items-center justify-center min-h-screen px-4">
         <motion.div
