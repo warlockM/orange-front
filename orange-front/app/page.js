@@ -131,12 +131,6 @@ export default function Home() {
           <p className="text-gray-300 text-base sm:text-lg">
           🟠 Make strategic pricing, SEO, and review decisions at 4X speed.
           </p>
-          <p className="text-gray-300 text-base sm:text-lg">
-          🟠 Let AI researcher do the competitor research's heavy lifting.
-          </p>
-          <p className="text-gray-300 text-bold text-base sm:text-lg mb-4">
-          🟠 Show interest in being an early adopter and get a surprise when we launch.
-          </p>
           <a href="#form">
             <button className="mt-4 px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition" id="register-homepage">
               Get free access
