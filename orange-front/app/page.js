@@ -123,8 +123,8 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
         >
-          <h1 className="text-4xl sm:text-5xl font-bold text-orange-500 mb-4">Orange Intelligence</h1>
-          <h1 className="text-2xl sm:text-3xl font-semibold text-white mb-4">Predict competitor moves before they happen.</h1>
+          <h1 className="text-4xl sm:text-3xl font-bold text-orange-500 mb-4">Orange Intelligence</h1>
+          <h1 className="text-2xl sm:text-6xl font-semibold text-white mb-4">AI-Copilot for your ecommerce business</h1>
           <p className="text-gray-300 text-base sm:text-lg">
           🟠 Mitigate 15-20% revenue losses on marketplaces.
           </p>
